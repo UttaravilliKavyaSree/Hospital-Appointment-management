@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Scheduling</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background-color:rgba(0,0,0,1.0) ;
+            background-size: cover;
+            background-position: center;
+            color: White ;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image:url("https://www.aamc.org/sites/default/files/Article-Academic-Health-Centers-927897070_0.jpg");
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(235, 245, 245, 0.9);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        button {
+            background-color: DarkCyan;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Appointment Scheduling</h1>
+    </header>
+
+    <main>
+        <form id="appointmentForm">
+            <label for="domain">Domain:</label>
+            <select id="domain" required>
+                <option value="general">General Medicine</option>
+                <option value="dentistry">Dentistry</option>
+                <option value="cardiology">Cardiology</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <label for="doctor">Doctor:</label>
+            <select id="doctor">
+                <option value="" >Select a doctor</option>
+                <option value="dr_smith">Dr. Smith</option>
+                <option value="dr_jones">Dr. Jones</option>
+                <option value="dr_doe">Dr. Doe</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" required>
+
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" id="appointmentDate" required>
+
+            <label for="appointmentTime">Appointment Time:</label>
+            <input type="time" id="appointmentTime" required>
+
+            <button type="button" onclick="scheduleAppointment()">Schedule Appointment</button>
+            <a href="login.php">Logout</a>
+        </form>
+    </main>
+
+    <script>
+        function scheduleAppointment() {
+            const domain = document.getElementById('domain').value;
+            const doctor = document.getElementById('doctor').value;
+            const patientName = document.getElementById('patientName').value;
+            const appointmentDate = document.getElementById('appointmentDate').value;
+            const appointmentTime = document.getElementById('appointmentTime').value;
+
+            alert(`Appointment scheduled for ${patientName} in ${domain}${doctor ? ' with ' + doctor : ''} on ${appointmentDate} at ${appointmentTime}`);
+        }
+    </script>
+</body>
+</html>
